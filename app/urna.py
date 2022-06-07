@@ -1,7 +1,8 @@
 from operator import itemgetter
 from rich import print
 
-from app.utils import cabecalho
+from app.utils import cabecalho, retornar_data_hora
+
 
 class Urna:
 
@@ -69,14 +70,16 @@ class Urna:
 
     def salvar_votos(self):
         try:
-            with open('votos.txt', 'a+') as votacao:
-                resultado = sorted(self.votos.items(),
-                                   key=itemgetter(1), reverse=True)
+            data = retornar_data_hora().replace('/', '-')
+            resultado = sorted(self.votos.items(),
+                               key=itemgetter(1), reverse=True)
 
+            with open(f'Votação {data}.txt', 'w') as votacao:
                 for value in resultado:
                     votacao.write(f'{value[0]};{value[1]}\n')
 
-                print('Votação salva com sucesso')
+            print('Votação salva com sucesso')
+
         except Exception as erro:
             print('[red]ERRO[/] ao salvar votação')
             print(erro.__class__)

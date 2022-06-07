@@ -65,3 +65,14 @@ def menu(titulo, lista: list) -> int:
             break
         print('[red][bold]ERRO! [/]Digite uma opção válida[/]')
     return opc
+
+
+def retornar_data_hora(formato: str = '%d/%m/%Y %H:%M') -> str:
+    """Função que retorne a data e hora atual com o formato informado
+    formato padrão: DD/MM/AAAA HH:MM"""
+
+    from datetime import datetime
+
+    data_hora_atual = datetime.now()
+    data_hora_atual = data_hora_atual.strftime(formato)
+    return data_hora_atual
