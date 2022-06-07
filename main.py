@@ -4,8 +4,8 @@ from app.utils import menu, confirmar, limpar
 
 def main():
     urna = Urna()
-    urna.abrir_votacao('Candidato 1', 'Candidato 2',
-                       'Candidato 3', 'Candidato 4')
+    urna.abrir_votacao('Candidato 0', 'Candidato 1',
+                       'Candidato 2', 'Candidato 3')
 
     if not urna.votacao_aberta:
         exit()
