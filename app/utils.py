@@ -1,9 +1,17 @@
+from time import sleep
 from rich import print
 
 
 def limpar():
     from os import system, name
     system('cls' if name == 'nt' else 'clear')
+
+
+def sair() -> None:
+    """Sai do sistema"""
+    print('[red]Saindo do sistema...[/] [green]Até logo.[/]')
+    sleep(1)
+    exit()
 
 
 def confirmar(msg: str = '') -> bool:

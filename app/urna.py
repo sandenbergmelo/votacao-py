@@ -11,8 +11,10 @@ class Urna:
         self.votos = {}
         self.votacao_aberta = False
 
-    def abrir_votacao(self, *candidatos: str):
-        if isinstance(candidatos[0], tuple) or isinstance(candidatos[0], list):
+    def abrir_votacao(self, *candidatos: tuple):
+        if (len(candidatos) >= 1
+            and (isinstance(candidatos[0], tuple)
+                 or isinstance(candidatos[0], list))):
             candidatos = candidatos[0]
 
         for candidato in candidatos:

@@ -1,5 +1,5 @@
 from app.urna import Urna
-from app.utils import menu, confirmar, limpar
+from app.utils import menu, confirmar, limpar, sair
 
 
 def main():
@@ -8,7 +8,7 @@ def main():
                        'Candidato 2', 'Candidato 3')
 
     if not urna.votacao_aberta:
-        exit()
+        sair()
 
     while True:
         limpar()
