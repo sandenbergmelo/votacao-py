@@ -33,6 +33,9 @@ def test_votar_em_candidatos():
     for i, voto in enumerate(votos):  # Verifica a quantidade de votos de cada um
         resultado = voto == quantidades_de_votos[i]
 
+        if resultado == False:
+            break
+
     assert resultado
 
 
