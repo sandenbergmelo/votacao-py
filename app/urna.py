@@ -1,4 +1,5 @@
 from operator import itemgetter
+from time import sleep
 from rich import print
 
 from app.utils import cabecalho, retornar_data_hora
@@ -32,7 +33,6 @@ class Urna:
             return
 
         self.votacao_aberta = True
-        print('Votação aberta')
 
     def votar(self, voto):
         try:
@@ -64,6 +64,7 @@ class Urna:
             cabecalho('Total de votos')
             for i, value in enumerate(resultado):
                 print(f'{i+1}º {value[0]}: {value[1]} votos')
+                sleep(1)
             return
 
         candidato = self.candidatos[candidato]
@@ -80,7 +81,7 @@ class Urna:
                 for value in resultado:
                     votacao.write(f'{value[0]};{value[1]}\n')
 
-            print('Votação salva com sucesso')
+            print('Votação salva com [bold][green]Sucesso[/][/]')
 
         except Exception as erro:
             print('[red]ERRO[/] ao salvar votação')

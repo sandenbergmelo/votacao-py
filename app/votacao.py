@@ -1,7 +1,7 @@
 from time import sleep
 
 from app.urna import Urna
-from app.utils import sair, limpar, menu, confirmar
+from app.utils import sair, limpar, menu, confirmar, cabecalho, input_str
 
 
 class Votacao:
@@ -15,6 +15,28 @@ class Votacao:
                  isinstance(candidatos[0], tuple))):
             self.candidatos = candidatos[0]
 
+    @staticmethod
+    def ler_candidatos() -> list:
+        cabecalho('Votação')
+
+        candidatos = []
+        c = 0
+
+        while True:
+            candidato = input_str(f'Digite o nome do candidato {c}: ').title()
+
+            candidatos.append(candidato)
+
+            continuar = confirmar('Cadastrar outro candidato?')
+            print()
+            c += 1
+
+            if not continuar:
+                break
+
+        limpar()
+        return candidatos
+
     def iniciar(self):
         self.urna.abrir_votacao(self.candidatos)
 
@@ -22,7 +44,6 @@ class Votacao:
             sair()
 
         while True:
-            limpar()
 
             voto = menu('VOTAÇÃO', self.urna.candidatos)
 
@@ -30,6 +51,7 @@ class Votacao:
 
             continuar = confirmar('\nVotar novamente?')
 
+            limpar()
             if not continuar:
                 break
 
