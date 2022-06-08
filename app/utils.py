@@ -9,7 +9,7 @@ def limpar() -> None:
 
 def sair() -> None:
     """Sai do sistema"""
-    print('[red]Saindo do sistema...[/] [green]Até logo.[/]')
+    print('\n[red]Saindo do sistema...[/] [green]Até logo.[/]')
     sleep(1)
     exit()
 
@@ -51,7 +51,7 @@ def linha(tamanho: int = 42) -> str:
     return '-' * tamanho
 
 
-def cabecalho(txt: str) -> str:
+def cabecalho(txt: str) -> None:
     tamanho = len(txt) + 4
 
     print(linha(tamanho))
@@ -63,8 +63,8 @@ def menu(titulo, lista: list) -> int:
     cabecalho(titulo)
 
     for i, item in enumerate(lista):
-
         print(f'[yellow]{i}[/] - [blue]{item}[/]')
+
     print(linha(11))
 
     while True:
