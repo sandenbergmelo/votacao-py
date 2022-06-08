@@ -30,6 +30,8 @@ def main():
     if salvar:
         urna.salvar_votos()
 
+    sair()
+
 
 if __name__ == '__main__':
     main()
