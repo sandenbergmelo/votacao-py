@@ -46,6 +46,7 @@ def input_int(msg: str = '') -> int:
 
         return valor
 
+
 def input_str(msg: str = '') -> str:
     """Lê uma string"""
     while True:
@@ -63,6 +64,7 @@ def input_str(msg: str = '') -> str:
             valor = '<desconhecido>'
 
         return valor
+
 
 def linha(tamanho: int = 42) -> str:
     return '-' * tamanho
