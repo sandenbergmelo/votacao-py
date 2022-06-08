@@ -1,36 +1,32 @@
-from app.urna import Urna
-from app.utils import menu, confirmar, limpar, sair
+from app.votacao import Votacao
+from app.utils import cabecalho, confirmar, input_str, limpar
 
 
 def main():
-    urna = Urna()
-    urna.abrir_votacao('Candidato 0', 'Candidato 1',
-                       'Candidato 2', 'Candidato 3')
+    cabecalho('Votação')
 
-    if not urna.votacao_aberta:
-        sair()
+    candidatos = []
+    c = 0
 
     while True:
-        limpar()
+        candidato = input_str(f'Digite o nome do candidato {c}: ').title()
 
-        voto = menu('VOTAÇÃO', urna.candidatos)
+        candidatos.append(candidato)
 
-        urna.votar(voto)
-
-        continuar = confirmar('\nVotar novamente?')
+        continuar = confirmar('Cadastrar outro candidato?')
+        print()
+        c += 1
 
         if not continuar:
             break
 
+    votacao = Votacao(candidatos)
+
+    votacao.iniciar()
+
     limpar()
-    urna.mostrar_votos(formatado=True)
 
-    salvar = confirmar('Salvar votos?')
-
-    if salvar:
-        urna.salvar_votos()
-
-    sair()
+    votacao.concluir()
 
 
 if __name__ == '__main__':

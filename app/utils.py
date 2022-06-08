@@ -17,8 +17,8 @@ def sair() -> None:
 def confirmar(msg: str = '') -> bool:
     while True:
         try:
-            valor = str(input(f'{msg} [S/N]: ')).strip().upper()[0]
-            if valor not in 'SN':
+            valor = str(input(f'{msg} [S/N]: ')).strip().upper()
+            if valor not in 'SN' or valor == '':
                 print('[red][bold]ERRO![/] Digite uma opção válida.[/]')
                 continue
         except (ValueError, TypeError):
@@ -28,7 +28,7 @@ def confirmar(msg: str = '') -> bool:
             print('\n[yellow][bold]Interrupção![/][/]')
             continue
 
-        return True if valor == 'S' else False
+        return True if valor[0] == 'S' else False
 
 
 def input_int(msg: str = '') -> int:
@@ -46,6 +46,23 @@ def input_int(msg: str = '') -> int:
 
         return valor
 
+def input_str(msg: str = '') -> str:
+    """Lê uma string"""
+    while True:
+        try:
+            valor = str(input(msg)).strip()
+            if valor == '':
+                print('[red][bold]ERRO![/] Digite uma string válida.[/]')
+                continue
+        except (ValueError, TypeError):
+            print('[red][bold]ERRO![/] Digite uma string válida.[/]')
+            continue
+        except KeyboardInterrupt:
+            print(
+                '\n[yellow][bold]Interrupção![/] O usuário preferiu interromper a leitura.[/]')
+            valor = '<desconhecido>'
+
+        return valor
 
 def linha(tamanho: int = 42) -> str:
     return '-' * tamanho
