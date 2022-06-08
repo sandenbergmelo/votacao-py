@@ -2,7 +2,7 @@ from time import sleep
 from rich import print
 
 
-def limpar():
+def limpar() -> None:
     from os import system, name
     system('cls' if name == 'nt' else 'clear')
 
@@ -75,12 +75,11 @@ def menu(titulo, lista: list) -> int:
     return opc
 
 
-def retornar_data_hora(formato: str = '%d/%m/%Y %H:%M') -> str:
+def retornar_data_hora(formato: str = '%d-%m-%Y %Hh%Mm') -> str:
     """Função que retorne a data e hora atual com o formato informado
-    formato padrão: DD/MM/AAAA HH:MM"""
+    formato padrão: DD-MM-AAAA HHhMMm"""
 
     from datetime import datetime
 
-    data_hora_atual = datetime.now()
-    data_hora_atual = data_hora_atual.strftime(formato)
+    data_hora_atual = datetime.now().strftime(formato)
     return data_hora_atual

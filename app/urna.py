@@ -72,7 +72,7 @@ class Urna:
 
     def salvar_votos(self):
         try:
-            data = retornar_data_hora().replace('/', '-')
+            data = retornar_data_hora()
             resultado = sorted(self.votos.items(),
                                key=itemgetter(1), reverse=True)
 

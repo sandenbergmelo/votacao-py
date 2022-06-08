@@ -8,6 +8,7 @@
             "type": "shell",
             "command": "rm ${workspaceFolder}/*Votação*.txt",
             "isBackground": true,
+            "problemMatcher": []
         }
     ]
 }

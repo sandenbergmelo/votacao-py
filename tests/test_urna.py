@@ -45,7 +45,7 @@ def test_salvar_votos():
     candidatos = []
     quantidades_de_votos = []
 
-    n_de_candidatos = randint(3, 10)
+    n_de_candidatos = randint(2, 10)
 
     for i in range(n_de_candidatos):
         # Gera os nomes dos candidatos
@@ -61,7 +61,7 @@ def test_salvar_votos():
 
     urna.salvar_votos()
 
-    data = retornar_data_hora().replace('/', '-')
+    data = retornar_data_hora()
     file = Path(f'Votação {data}.txt')
     resultado = file.is_file()
     os.remove(file)
