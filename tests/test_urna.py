@@ -12,7 +12,7 @@ def test_votar_em_candidatos():
     candidatos = []
     quantidades_de_votos = []
 
-    n_de_candidatos = randint(3, 10)
+    n_de_candidatos = randint(2, 10)
 
     for i in range(n_de_candidatos):
         # Gera os nomes dos candidatos
