@@ -2,7 +2,7 @@ from operator import itemgetter
 from time import sleep
 from rich import print
 
-from app.utils import cabecalho, retornar_data_hora
+from .utils import cabecalho, retornar_data_hora
 
 
 class Urna:

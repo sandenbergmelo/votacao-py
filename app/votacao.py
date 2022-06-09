@@ -1,7 +1,7 @@
 from time import sleep
 
-from app.urna import Urna
-from app.utils import *
+from .urna import Urna
+from .utils import *
 
 
 class Votacao:
