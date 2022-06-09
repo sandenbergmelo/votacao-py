@@ -1,7 +1,7 @@
 from time import sleep
 
 from app.urna import Urna
-from app.utils import sair, limpar, menu, confirmar, cabecalho, input_str
+from app.utils import *
 
 
 class Votacao:
