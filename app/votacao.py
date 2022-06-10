@@ -10,9 +10,6 @@ class Votacao:
         self.urna = Urna()
         self.candidatos = candidatos
 
-        if not candidatos:
-            self.candidatos = self.ler_candidatos()
-
         if (len(candidatos) > 0
             and (isinstance(candidatos[0], list) or
                  isinstance(candidatos[0], tuple))):
@@ -41,6 +38,9 @@ class Votacao:
         return candidatos
 
     def iniciar(self):
+        if not self.candidatos:
+            self.candidatos = self.ler_candidatos()
+
         self.urna.abrir_votacao(self.candidatos)
 
         if not self.urna.votacao_aberta:
