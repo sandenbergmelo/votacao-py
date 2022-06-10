@@ -10,6 +10,9 @@ class Votacao:
         self.urna = Urna()
         self.candidatos = candidatos
 
+        if not candidatos:
+            self.candidatos = self.ler_candidatos()
+
         if (len(candidatos) > 0
             and (isinstance(candidatos[0], list) or
                  isinstance(candidatos[0], tuple))):

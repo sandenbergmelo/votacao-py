@@ -2,7 +2,7 @@ from app.votacao import Votacao
 
 
 def main():
-    votacao = Votacao(Votacao.ler_candidatos())
+    votacao = Votacao()
     votacao.iniciar()
     votacao.concluir()
 
