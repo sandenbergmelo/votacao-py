@@ -18,15 +18,15 @@ def confirmar(msg: str = '') -> bool:
     while True:
         try:
             valor = str(input(f'{msg} [S/N]: ')).strip().upper()
-            if valor not in 'SN' or valor == '':
-                print('[red][bold]ERRO![/] Digite uma opção válida.[/]')
-                continue
+            if valor == '' or valor[0] not in 'SN':
+                raise ValueError
         except (ValueError, TypeError):
             print('[red][bold]ERRO![/] Digite uma opção válida.[/]')
             continue
         except KeyboardInterrupt:
             print('\n[yellow][bold]Interrupção![/][/]')
-            continue
+            sleep(1)
+            valor = 'N'
 
         return True if valor[0] == 'S' else False
 
@@ -53,8 +53,7 @@ def input_str(msg: str = '') -> str:
         try:
             valor = str(input(msg)).strip()
             if valor == '':
-                print('[red][bold]ERRO![/] Digite uma string válida.[/]')
-                continue
+                raise ValueError
         except (ValueError, TypeError):
             print('[red][bold]ERRO![/] Digite uma string válida.[/]')
             continue
