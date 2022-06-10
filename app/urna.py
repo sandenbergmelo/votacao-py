@@ -13,7 +13,7 @@ class Urna:
         self.votacao_aberta = False
 
     def abrir_votacao(self, *candidatos: tuple):
-        if (len(candidatos) >= 1
+        if (candidatos
             and (isinstance(candidatos[0], tuple)
                  or isinstance(candidatos[0], list))):
             candidatos = candidatos[0]
@@ -52,8 +52,8 @@ class Urna:
         for candidato in self.candidatos:
             print(candidato)
 
-    def mostrar_votos(self, candidato=-1, formatado=False):
-        if candidato == -1:
+    def mostrar_votos(self, candidato: int = None, formatado=False):
+        if candidato is None:
             if not formatado:
                 print(self.votos)
                 return

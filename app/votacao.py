@@ -10,7 +10,7 @@ class Votacao:
         self.urna = Urna()
         self.candidatos = candidatos
 
-        if (len(candidatos) > 0
+        if (candidatos
             and (isinstance(candidatos[0], list) or
                  isinstance(candidatos[0], tuple))):
             self.candidatos = candidatos[0]
