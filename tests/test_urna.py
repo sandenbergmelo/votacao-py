@@ -1,4 +1,3 @@
-import os
 from pathlib import Path
 from random import randint
 
@@ -64,6 +63,6 @@ def test_salvar_votos():
     data = retornar_data_hora()
     file = Path(f'Votação {data}.txt')
     resultado = file.is_file()
-    os.remove(file)
+    file.unlink()
 
     assert resultado
