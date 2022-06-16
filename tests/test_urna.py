@@ -27,13 +27,9 @@ def test_votar_em_candidatos():
 
     votos = list(urna.votos.values())
 
-    resultado = False
-
-    for i, voto in enumerate(votos):  # Verifica a quantidade de votos de cada um
-        resultado = voto == quantidades_de_votos[i]
-
-        if resultado is False:
-            break
+    # Verifica a quantidade de votos de cada um
+    resultado = all(voto == quantidades_de_votos[i]
+                    for i, voto in enumerate(votos))
 
     assert resultado
 
